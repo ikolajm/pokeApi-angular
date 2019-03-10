@@ -7,8 +7,8 @@
 
 <div>
   <label for="search">Name of Pokemon</label>
-  <input #search type="text" name="search" (keyup)=onType(search.value) >
-  <button (click)="submit()">Who's that pokemon?!?</button>
+  <input #search type="text" name="search">
+  <button (click)="submit(search.value)">Who's that pokemon?!?</button>
 </div>
 
 <div *ngIf="results.name; else noSearch">
