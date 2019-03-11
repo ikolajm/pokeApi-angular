@@ -14,9 +14,7 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
 
   submit(search) {
-    this.results = [];
     this.http.get(`${this.base}/${search}`).subscribe(pokemon => {
-      console.log(pokemon);
       this.results = pokemon;
     })
   }
