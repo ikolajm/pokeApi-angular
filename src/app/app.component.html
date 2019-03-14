@@ -1,20 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
+    <!-- Welcome to {{PokeApi}}... -->
     Welcome to {{ title }}, Gotta catch 'em all!
   </h1>
 </div>
 
 <div>
   <label for="search">Name of Pokemon</label>
+  <!-- Using the "#" allows us to create a reference point for this element (much like a document.query selector when used in this example) -->
   <input #search type="text" name="search">
+  <!-- On click, run the function "submit" in the .ts file using the parameter of the search value for "#search" -->
   <button (click)="submit(search.value)">Who's that pokemon?!?</button>
 </div>
 
+<!-- If "results" has a key of "name", run the app component of "display-pokemon", else reference "#noSearch" -->
 <div *ngIf="results.name; else noSearch">
+  <!-- Pass a property of "pokemon" to the object "results" from the .ts file, very similar to react in this regard -->
   <app-display-pokemon [pokemon]="results"></app-display-pokemon>
 </div>
 
+<!-- If "#noSearch" is activated, show whatever elements are inside of this component -->
 <ng-template #noSearch>
   <h1>Search the name of your favorite pokemon to learn more about it!!!</h1>
 </ng-template>

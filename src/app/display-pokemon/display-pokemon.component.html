@@ -1,12 +1,17 @@
 <div>
+    <!-- By using a | (pipe), we are able to manipulate data on the fly using premade keywords -->
+    <!-- Here, we are returning the pokemon name in all uppercase -->
     <h1>{{ _pokemon.name | uppercase }}: #{{ _pokemon.id }}</h1>
+    <!-- In Angular, to set src and alt they must be in [] -->
     <img [src]="_pokemon.sprites.front_default" [alt]="_pokemon.name">
     <h2>Type:</h2>
     <ul>
+      <!-- For loop showing every type associated to that pokemon being returned -->
       <li *ngFor="let type of _pokemon.types">{{ type.type.name }}</li>
     </ul>
     <h2>Move List:</h2>
     <ul>
+      <!-- For loop returning every move this pokemon can do -->
       <li *ngFor="let move of _pokemon.moves">{{ move.move.name }}</li>
     </ul>
 </div>
